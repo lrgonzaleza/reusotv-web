@@ -1,0 +1,511 @@
+.logo img {
+  height: 120px;   /* Ajusta el tamaño según lo necesites */
+  width: auto;    /* Mantiene proporción */
+  display: block;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Negro */
+  color: white;
+  padding-top: 140px;
+}
+
+/* ENCABEZADO */
+header {
+  background-color: #4b0082; /* Morado */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.4s ease;
+}
+
+header.scrolled {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  background-color: #3a0066; /* un morado más oscuro */
+}
+
+header.hidden {
+  transform: translateY(-100%); /* desaparece completamente */
+}
+
+header .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ccccff;
+}
+
+
+.whatsapp-logo a {
+  font-size: 40px;       /* más grande que antes */
+  color: #25d366;        /* verde oficial de WhatsApp */
+  text-decoration: none;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.whatsapp-logo a:hover {
+  color: #1ebe57;        
+  transform: scale(1.2);
+}
+
+
+
+.search-btn:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+
+
+
+
+/* CONTENIDO PRINCIPAL */
+main {
+  padding: 30px;
+  text-align: center;
+}
+
+.producto {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px;
+  display: inline-block;
+  width: 250px;
+}
+
+.producto img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* PIE DE PÁGINA */
+footer {
+  background: linear-gradient(135deg, #4b0082, #1e1e1e);
+  padding: 30px 20px;
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+  border-top: 2px solid #00ffcc;
+}
+
+footer p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 12px;
+  font-size: 28px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00ffcc;
+  transform: scale(1.2);
+}
+
+
+/* SECCIÓN DESTACADOS */
+.destacados {
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #4b0082, #1e1e1e);
+  border-radius: 15px;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.destacados h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #89e5f7; /* Dorado para resaltar */
+}
+
+.destacados .producto {
+  background: #2a2a2a;
+  display: inline-block;
+  width: 250px;
+  height: 400px;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  vertical-align: top;
+  text-align: center;
+}
+
+.destacados .producto img {
+  width: 100%;
+  height: 200px; /* altura fija para la imagen */
+  object-fit: cover; /* mantiene proporción, recorta si es necesario */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.destacados .producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.7);
+}
+
+.destacados .precio {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+.btn-cotizar {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #00ffcc;
+  color: #121212;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-cotizar:hover {
+  background-color: #00d9aa;
+  transform: scale(1.05);
+}
+
+
+/* MENÚ DESPLEGABLE */
+nav ul li {
+  position: relative; /* Necesario para el submenu */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+  display: block;
+}
+
+nav ul li a:hover {
+  color: #ccccff;
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Justo debajo del enlace principal */
+  left: 0;
+  background: #2a2a2a;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+
+.submenu li a {
+  padding: 10px;
+  color: white;
+  font-weight: normal;
+}
+
+.submenu li a:hover {
+  background: #4b0082;
+  color: #ffd700;
+}
+
+/* Mostrar submenú cuando se pasa el mouse */
+.dropdown:hover .submenu {
+  display: block;
+}
+
+/*Quienes somos*/
+#quienes-somos {
+  background: linear-gradient(135deg, #4b0082, #1e1e1e); /* similar a destacados */
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 15px;
+  max-width: 900px;
+  text-align: left; /* más profesional para leer párrafos */
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+#quienes-somos h2 {
+  text-align: center; /* Esto centra el título */
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #89e5f7; /* resalta como en destacados */
+}
+
+#quienes-somos p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #dcdcdc;
+}
+
+#quienes-somos strong {
+  color: #00ffcc; /* igual que los precios, para destacar el nombre */
+}
+
+/* Carrusel */
+.carousel {
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 250px;
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 0 10px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.carousel-item h3 { color: #89e5f7; margin: 10px 0 5px 0; }
+.carousel-item .precio { color: #00ffcc; font-weight: bold; margin-top: 5px; }
+
+/* Panel grande */
+.media-main img, .media-main video {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Miniaturas */
+.media-thumbs { display: flex; gap: 10px; justify-content: center; }
+.media-thumbs .thumb {
+  width: 60px; height: 40px; cursor: pointer;
+  border-radius: 4px; object-fit: cover;
+  border: 2px solid transparent; transition: border 0.2s;
+}
+.media-thumbs .thumb:hover { border: 2px solid #00ffcc; }
+
+/* Botones del carrusel */
+.carousel button {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.5); border: none; color: white;
+  font-size: 30px; padding: 10px; cursor: pointer; border-radius: 50%; z-index: 10;
+}
+.carousel .prev { left: 10px; }
+.carousel .next { right: 10px; }
+
+
+/* ACCESORIOS*/
+
+#accesorios {
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+#accesorios h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #89e5f7; /* mismo color que destacados */
+}
+
+#accesorios .producto {
+  background: #2a2a2a;
+  display: inline-block;
+  width: 250px;
+  height: 400px;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  vertical-align: top;
+  text-align: center;
+}
+
+#accesorios .producto img {
+   width: 100%;
+  height: 200px;
+  object-fit: contain; /* no recorta, se ajusta */
+  border-radius: 10px;
+  background-color: #1e1e1e; /* fondo detrás de las imágenes largas */
+  margin-bottom: 10px;
+}
+
+#accesorios .producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.7);
+}
+
+#accesorios .precio {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+#accesorios .btn-cotizar {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #00ffcc;
+  color: #121212;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+#accesorios .btn-cotizar:hover {
+  background-color: #00d9aa;
+  transform: scale(1.05);
+}
+
+
+
+.mensaje-repuestos {
+  margin: 15px auto;
+  padding: 15px 20px;
+  max-width: 900px;  
+  background: linear-gradient(500deg, #00ffcc, #0099ff);
+  color: #111;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-size: 1.1rem;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #25D366; /* Verde WhatsApp */
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.05);
+}
+
+
+/* -------------------- Responsive -------------------- */
+
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  nav {
+    position: fixed;
+    top: 65px;
+    right: -100%;
+    width: 250px;
+    height: calc(100% - 65px);
+    background-color: #4b0082;
+    flex-direction: column;
+    padding-top: 20px;
+    transition: right 0.3s ease;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav ul li {
+    margin-bottom: 10px;
+  }
+
+  nav ul li .submenu {
+    position: static;
+    display: none;
+    padding-left: 15px;
+  }
+
+  nav ul li.active > .submenu {
+    display: block;
+  }
+
+  /* Botón hamburguesa */
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .whatsapp-logo {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
