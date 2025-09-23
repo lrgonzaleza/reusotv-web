@@ -14,17 +14,18 @@ body {
 
 /* ENCABEZADO */
 header {
-  background-color: #4b0082; /* Morado */
+  background-color: #4b0082;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 10px 20px;   /* reducido */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: transform 0.4s ease;
+  transition: top 0.4s ease;
+  box-sizing: border-box;
 }
 
 header.scrolled {
@@ -449,63 +450,61 @@ nav ul li a:hover {
 /* -------------------- Responsive -------------------- */
 
 
-@media (max-width: 768px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px 20px;
-  }
+/* --- MENÚ RESPONSIVE --- */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
 
+/* Vista móvil */
+@media (max-width: 768px) {
   nav {
-    position: fixed;
-    top: 65px;
-    right: -100%;
-    width: 250px;
-    height: calc(100% - 65px);
-    background-color: #4b0082;
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #4b0082;
     flex-direction: column;
-    padding-top: 20px;
-    transition: right 0.3s ease;
+    text-align: center;
   }
 
   nav.active {
-    right: 0;
+    display: flex;
   }
 
   nav ul {
     flex-direction: column;
-    gap: 0;
+    padding: 0;
+    margin: 0;
   }
 
   nav ul li {
-    margin-bottom: 10px;
+    margin: 10px 0;
   }
 
-  nav ul li .submenu {
-    position: static;
-    display: none;
-    padding-left: 15px;
-  }
-
-  nav ul li.active > .submenu {
-    display: block;
-  }
-
-  /* Botón hamburguesa */
   .menu-toggle {
     display: block;
-    font-size: 28px;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  .whatsapp-logo {
-    display: none;
   }
 }
 
+/* --- CARRUSEL RESPONSIVE --- */
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 90%; /* en móvil ocupa casi toda la pantalla */
+  margin: 0 5%;
+  box-sizing: border-box;
+}
+
 @media (min-width: 769px) {
-  .menu-toggle {
-    display: none;
+  .carousel-item {
+    min-width: 300px;
+    margin: 0 10px;
   }
 }
