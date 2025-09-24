@@ -21,7 +21,10 @@ links.forEach(link => {
       }
 
       // ----------------- CERRAR MENÚ EN MÓVIL -----------------
-      nav.classList.remove("active");
+      const parentLi = link.parentElement;
+      if (!parentLi.classList.contains("dropdown")) {
+        nav.classList.remove("active");
+      }
     }
   });
 });
@@ -122,6 +125,7 @@ document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
     if(submenu) submenu.classList.toggle("active"); // mostrar/ocultar
   });
 });
+
 
 
 
