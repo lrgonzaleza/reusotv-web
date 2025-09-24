@@ -1,40 +1,40 @@
 .logo img {
-  height: 120px;   /* Ajusta el tamaño según lo necesites */
-  width: auto;    /* Mantiene proporción */
+  height: 120px;
+  width: auto;
   display: block;
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #121212; /* Negro */
+  background-color: #121212; /* fondo oscuro */
   color: white;
   padding-top: 140px;
 }
 
-/* ENCABEZADO */
+/* ---------- ENCABEZADO ---------- */
 header {
-  background-color: #4b0082;
+  background-color: #6C63FF; /* morado moderno */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;   /* reducido */
+  padding: 10px 20px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: top 0.4s ease;
+  transition: top 0.4s ease, background 0.3s ease;
   box-sizing: border-box;
 }
 
 header.scrolled {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  background-color: #3a0066; /* un morado más oscuro */
+  background-color: #5a54d1; /* más oscuro al hacer scroll */
 }
 
 header.hidden {
-  transform: translateY(-100%); /* desaparece completamente */
+  transform: translateY(-100%);
 }
 
 header .logo {
@@ -52,43 +52,67 @@ nav ul {
 
 nav ul li {
   display: inline;
+  position: relative;
 }
 
 nav ul li a {
   text-decoration: none;
   color: white;
   font-weight: bold;
+  padding: 8px;
+  display: block;
+  transition: color 0.3s;
 }
 
 nav ul li a:hover {
-  color: #ccccff;
+  color: #00E5CC;
 }
 
+/* Submenú */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #2a2a2a;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 1000;
+}
 
+.submenu li a {
+  padding: 10px;
+  color: white;
+  font-weight: normal;
+}
+
+.submenu li a:hover {
+  background: #6C63FF;
+  color: #FFD700;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
+
+/* ---------- WHATSAPP ---------- */
 .whatsapp-logo a {
-  font-size: 40px;       /* más grande que antes */
-  color: #25d366;        /* verde oficial de WhatsApp */
+  font-size: 40px;
+  color: #25d366; /* verde oficial */
   text-decoration: none;
   transition: transform 0.3s, color 0.3s;
 }
 
 .whatsapp-logo a:hover {
-  color: #1ebe57;        
+  color: #1ebe57;
   transform: scale(1.2);
 }
 
-
-
-.search-btn:hover {
-    background: #0056b3;
-    transform: scale(1.1);
-}
-
-
-
-
-
-/* CONTENIDO PRINCIPAL */
+/* ---------- CONTENIDO PRINCIPAL ---------- */
 main {
   padding: 30px;
   text-align: center;
@@ -108,20 +132,20 @@ main {
   border-radius: 8px;
 }
 
-/* PIE DE PÁGINA */
+/* ---------- PIE DE PÁGINA ---------- */
 footer {
-  background: linear-gradient(135deg, #4b0082, #1e1e1e);
+  background: linear-gradient(135deg, #6C63FF, #1E1E1E);
   padding: 30px 20px;
   text-align: center;
   color: white;
   margin-top: 40px;
-  border-top: 2px solid #00ffcc;
+  border-top: 2px solid #00E5CC;
 }
 
 footer p {
   margin: 10px 0;
   font-size: 14px;
-  color: #ccc;
+  color: #CCCCCC;
 }
 
 .footer-content {
@@ -141,16 +165,15 @@ footer p {
 }
 
 .social-icons a:hover {
-  color: #00ffcc;
+  color: #00E5CC;
   transform: scale(1.2);
 }
 
-
-/* SECCIÓN DESTACADOS */
+/* ---------- DESTACADOS ---------- */
 .destacados {
   margin: 40px auto;
   padding: 30px;
-  background: linear-gradient(135deg, #4b0082, #1e1e1e);
+  background: linear-gradient(135deg, #6C63FF, #1E1E1E);
   border-radius: 15px;
   max-width: 900px;
   text-align: center;
@@ -160,7 +183,7 @@ footer p {
 .destacados h2 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #89e5f7; /* Dorado para resaltar */
+  color: #FFD700; /* dorado */
 }
 
 .destacados .producto {
@@ -178,8 +201,8 @@ footer p {
 
 .destacados .producto img {
   width: 100%;
-  height: 200px; /* altura fija para la imagen */
-  object-fit: cover; /* mantiene proporción, recorta si es necesario */
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
 }
@@ -192,14 +215,14 @@ footer p {
 .destacados .precio {
   font-size: 18px;
   font-weight: bold;
-  color: #00ffcc;
+  color: #00E5CC;
 }
 
 .btn-cotizar {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #00ffcc;
+  background-color: #00E5CC;
   color: #121212;
   font-weight: bold;
   text-decoration: none;
@@ -208,77 +231,27 @@ footer p {
 }
 
 .btn-cotizar:hover {
-  background-color: #00d9aa;
+  background-color: #00c9b3;
   transform: scale(1.05);
 }
 
-
-/* MENÚ DESPLEGABLE */
-nav ul li {
-  position: relative; /* Necesario para el submenu */
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  padding: 8px;
-  display: block;
-}
-
-nav ul li a:hover {
-  color: #ccccff;
-}
-
-/* Submenú oculto por defecto */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%; /* Justo debajo del enlace principal */
-  left: 0;
-  background: #2a2a2a;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  min-width: 180px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  z-index: 1000;
-}
-
-.submenu li a {
-  padding: 10px;
-  color: white;
-  font-weight: normal;
-}
-
-.submenu li a:hover {
-  background: #4b0082;
-  color: #ffd700;
-}
-
-/* Mostrar submenú cuando se pasa el mouse */
-.dropdown:hover .submenu {
-  display: block;
-}
-
-/*Quienes somos*/
+/* ---------- QUIÉNES SOMOS ---------- */
 #quienes-somos {
-  background: linear-gradient(135deg, #4b0082, #1e1e1e); /* similar a destacados */
+  background: linear-gradient(135deg, #6C63FF, #1e1e1e);
   padding: 30px;
   margin: 40px auto;
   border-radius: 15px;
   max-width: 900px;
-  text-align: left; /* más profesional para leer párrafos */
+  text-align: left;
   color: #ffffff;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 #quienes-somos h2 {
-  text-align: center; /* Esto centra el título */
+  text-align: center;
   font-size: 28px;
   margin-bottom: 20px;
-  color: #89e5f7; /* resalta como en destacados */
+  color: #FFD700;
 }
 
 #quienes-somos p {
@@ -288,10 +261,10 @@ nav ul li a:hover {
 }
 
 #quienes-somos strong {
-  color: #00ffcc; /* igual que los precios, para destacar el nombre */
+  color: #00E5CC;
 }
 
-/* Carrusel */
+/* ---------- CARRUSEL ---------- */
 .carousel {
   position: relative;
   margin-top: 20px;
@@ -316,10 +289,9 @@ nav ul li a:hover {
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
-.carousel-item h3 { color: #89e5f7; margin: 10px 0 5px 0; }
-.carousel-item .precio { color: #00ffcc; font-weight: bold; margin-top: 5px; }
+.carousel-item h3 { color: #FFD700; margin: 10px 0 5px 0; }
+.carousel-item .precio { color: #00E5CC; font-weight: bold; margin-top: 5px; }
 
-/* Panel grande */
 .media-main img, .media-main video {
   width: 100%;
   max-height: 300px;
@@ -328,16 +300,19 @@ nav ul li a:hover {
   margin-bottom: 10px;
 }
 
-/* Miniaturas */
-.media-thumbs { display: flex; gap: 10px; justify-content: center; }
+.media-thumbs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
 .media-thumbs .thumb {
   width: 60px; height: 40px; cursor: pointer;
   border-radius: 4px; object-fit: cover;
   border: 2px solid transparent; transition: border 0.2s;
 }
-.media-thumbs .thumb:hover { border: 2px solid #00ffcc; }
+.media-thumbs .thumb:hover { border: 2px solid #00E5CC; }
 
-/* Botones del carrusel */
 .carousel button {
   position: absolute; top: 50%; transform: translateY(-50%);
   background: rgba(0,0,0,0.5); border: none; color: white;
@@ -346,9 +321,7 @@ nav ul li a:hover {
 .carousel .prev { left: 10px; }
 .carousel .next { right: 10px; }
 
-
-/* ACCESORIOS*/
-
+/* ---------- ACCESORIOS ---------- */
 #accesorios {
   margin: 40px auto;
   padding: 30px;
@@ -361,7 +334,7 @@ nav ul li a:hover {
 #accesorios h2 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #89e5f7; /* mismo color que destacados */
+  color: #FFD700;
 }
 
 #accesorios .producto {
@@ -378,11 +351,11 @@ nav ul li a:hover {
 }
 
 #accesorios .producto img {
-   width: 100%;
+  width: 100%;
   height: 200px;
-  object-fit: contain; /* no recorta, se ajusta */
+  object-fit: contain;
   border-radius: 10px;
-  background-color: #1e1e1e; /* fondo detrás de las imágenes largas */
+  background-color: #1e1e1e;
   margin-bottom: 10px;
 }
 
@@ -394,14 +367,14 @@ nav ul li a:hover {
 #accesorios .precio {
   font-size: 18px;
   font-weight: bold;
-  color: #00ffcc;
+  color: #00E5CC;
 }
 
 #accesorios .btn-cotizar {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #00ffcc;
+  background-color: #00E5CC;
   color: #121212;
   font-weight: bold;
   text-decoration: none;
@@ -410,17 +383,15 @@ nav ul li a:hover {
 }
 
 #accesorios .btn-cotizar:hover {
-  background-color: #00d9aa;
+  background-color: #00c9b3;
   transform: scale(1.05);
 }
-
-
 
 .mensaje-repuestos {
   margin: 15px auto;
   padding: 15px 20px;
-  max-width: 900px;  
-  background: linear-gradient(500deg, #00ffcc, #0099ff);
+  max-width: 900px;
+  background: linear-gradient(500deg, #00E5CC, #0099FF);
   color: #111;
   font-weight: bold;
   text-align: center;
@@ -433,7 +404,7 @@ nav ul li a:hover {
   display: inline-block;
   margin-top: 12px;
   padding: 10px 20px;
-  background-color: #25D366; /* Verde WhatsApp */
+  background-color: #25D366;
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -446,11 +417,7 @@ nav ul li a:hover {
   transform: scale(1.05);
 }
 
-
-/* -------------------- Responsive -------------------- */
-
-
-/* --- MENÚ RESPONSIVE --- */
+/* ---------- RESPONSIVE ---------- */
 .menu-toggle {
   display: none;
   font-size: 28px;
@@ -458,7 +425,6 @@ nav ul li a:hover {
   color: white;
 }
 
-/* Vista móvil */
 @media (max-width: 768px) {
   nav {
     display: none;
@@ -466,7 +432,7 @@ nav ul li a:hover {
     top: 60px;
     left: 0;
     width: 100%;
-    background: #4b0082;
+    background: #6C63FF;
     flex-direction: column;
     text-align: center;
   }
@@ -488,16 +454,35 @@ nav ul li a:hover {
   .menu-toggle {
     display: block;
   }
+
+  /* ---------- CENTRAR PRODUCTOS DESTACADOS Y ACCESORIOS ---------- */
+  .destacados, #accesorios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .destacados .producto,
+  #accesorios .producto {
+    width: 90%;
+    max-width: 300px;
+    margin: 10px 0;
+  }
+
+  .destacados .producto h3,
+  #accesorios .producto h3,
+  .destacados .producto p,
+  #accesorios .producto p,
+  .destacados .producto .precio,
+  #accesorios .producto .precio {
+    text-align: center;
+  }
 }
 
-/* --- CARRUSEL RESPONSIVE --- */
-.carousel-track {
-  display: flex;
-  transition: transform 0.4s ease-in-out;
-}
-
+/* Carrusel responsive */
 .carousel-item {
-  min-width: 90%; /* en móvil ocupa casi toda la pantalla */
+  min-width: 90%;
   margin: 0 5%;
   box-sizing: border-box;
 }
@@ -508,3 +493,5 @@ nav ul li a:hover {
     margin: 0 10px;
   }
 }
+
+
