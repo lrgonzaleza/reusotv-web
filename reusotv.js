@@ -116,11 +116,13 @@ menuToggle.addEventListener("click", () => {
 // Submenú desplegable en móvil
 document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
   link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const parent = link.parentElement;
-    parent.classList.toggle("active");
+    e.preventDefault();       // evitar comportamiento por defecto
+    e.stopPropagation();      // que no afecte nav principal
+    const submenu = link.nextElementSibling; // el ul.submenu
+    if(submenu) submenu.classList.toggle("active"); // mostrar/ocultar
   });
 });
+
 
 
 
