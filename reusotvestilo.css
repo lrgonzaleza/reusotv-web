@@ -458,7 +458,17 @@ footer p {
     margin: 10px 0;
   }
 
+    /* Submenú activo en móvil */
+  .submenu.active {
+    display: block;
+  }
+
    /* Submenú móvil con click */
+  .dropdown > a::after {
+    content: ' ▼';
+    font-size: 0.8em;
+  }
+  
   .dropdown > a::after {
     content: ' ▼';
     font-size: 0.8em;
@@ -517,6 +527,7 @@ footer p {
     margin: 0 10px;
   }
 }
+
 
 
 
