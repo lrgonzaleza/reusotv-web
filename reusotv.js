@@ -100,6 +100,14 @@ window.addEventListener("scroll", () => {
   } else {
     header.classList.remove("hidden"); // subiendo → mostrar
   }
+
+  if (nav.classList.contains("active")) {
+    nav.classList.remove("active");
+    document.querySelectorAll("nav ul li.dropdown").forEach(drop => {
+      drop.classList.remove("active");
+    });
+  }
+  
   lastScrollY = window.scrollY;
 });
 
@@ -125,6 +133,7 @@ document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
     if(submenu) submenu.classList.toggle("active"); // mostrar/ocultar
   });
 });
+
 
 
 
