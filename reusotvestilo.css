@@ -423,19 +423,27 @@ footer p {
   font-size: 28px;
   cursor: pointer;
   color: white;
+  position: fixed; /* siempre visible */
+  top: 15px;
+  right: 20px;
+  z-index: 1100; /* arriba de todo */
 }
 
 @media (max-width: 768px) {
   nav {
-     display: none;
-    position: absolute;
-    top: 60px; /* justo debajo del header */
+    display: none;
+    position: fixed; /* fijo sobre todo el contenido */
+    top: 0;
     left: 0;
     width: 100%;
-    background: #6C63FF;
+    height: 100%; /* ocupa toda la pantalla */
+    background: rgba(108, 99, 255, 0.95); /* semitransparente */
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    z-index: 1000; /* menos que .menu-toggle */
+    z-index: 1000; /* debajo del botón */
+    padding-top: 80px; /* no tapa el header */
   }
 
   nav.active {
@@ -444,6 +452,7 @@ footer p {
 
   nav ul {
     flex-direction: column;
+    gap: 20px;
     padding: 0;
     margin: 0;
   }
@@ -452,16 +461,22 @@ footer p {
     margin: 10px 0;
   }
 
-  .menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: white;
-  position: relative;
-  z-index: 1100; /* más alto que el nav */
+  .submenu {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #2a2a2a;
+    width: 80%;
+    margin: 10px auto 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   }
 
-  /* ---------- CENTRAR PRODUCTOS DESTACADOS Y ACCESORIOS ---------- */
+  .submenu li a {
+    padding: 10px;
+  }
+
+  /* Centrar productos en móviles */
   .destacados, #accesorios {
     display: flex;
     flex-direction: column;
@@ -485,6 +500,7 @@ footer p {
     text-align: center;
   }
 }
+
 
 /* Carrusel responsive */
 .carousel-item {
