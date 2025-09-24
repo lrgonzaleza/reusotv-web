@@ -1,11 +1,9 @@
-//Hace que al seleccionar una opción del submenú se desplace de forma delicada hacía el contenido 
-
-const links = document.querySelectorAll("nav a"); // incluye todos los links del menú
+// ----------------- SCROLL SUAVE Y SECCIÓN ACTIVA -----------------
+const links = document.querySelectorAll("nav a"); // todos los links del menú
 const sections = document.querySelectorAll(".menu-content");
 
 links.forEach(link => {
   link.addEventListener("click", function(e) {
-    // Solo aplicamos si es un enlace interno (que empieza con #)
     if (this.getAttribute("href").startsWith("#")) {
       e.preventDefault();
       const targetId = this.getAttribute("href").substring(1);
@@ -19,19 +17,16 @@ links.forEach(link => {
         targetSection.classList.add("active");
 
         // Scroll suave hacia la sección
-        targetSection.scrollIntoView({ 
-          behavior: "smooth", 
-          block: "start" 
-        });
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+
+      // ----------------- CERRAR MENÚ EN MÓVIL -----------------
+      nav.classList.remove("active");
     }
   });
 });
 
-
-//Controla el carrusel, miniaturas y el modasl
-
-// Carrusel
+// ----------------- CARRUSEL -----------------
 const track = document.querySelector(".carousel-track");
 const items = Array.from(track.children);
 const nextBtn = document.querySelector(".next");
@@ -56,7 +51,7 @@ prevBtn.addEventListener("click", () => {
   }
 });
 
-// Miniaturas -> panel grande
+// ----------------- MINIATURAS / PANEL GRANDE -----------------
 document.querySelectorAll('.carousel-item').forEach(item => {
   const mainImg = item.querySelector('.main-img');
   const mainVideo = item.querySelector('.main-video');
@@ -64,13 +59,11 @@ document.querySelectorAll('.carousel-item').forEach(item => {
   item.querySelectorAll('.thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
       if (thumb.tagName === 'IMG') {
-        // Mostrar imagen
         mainImg.src = thumb.src;
         mainImg.style.display = 'block';
         mainVideo.style.display = 'none';
         mainVideo.pause();
       } else if (thumb.tagName === 'VIDEO') {
-        // Mostrar video
         const videoSrc = thumb.querySelector('source').src;
         mainVideo.querySelector('source').src = videoSrc;
         mainVideo.load();
@@ -82,55 +75,40 @@ document.querySelectorAll('.carousel-item').forEach(item => {
   });
 });
 
+// ----------------- SOMBRA HEADER -----------------
+window.addEventListener("scroll", function() {
+  const header = document.querySelector("header");
+  if (window.scrollY > 10) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
 
-//Le da sombra al header-->
-
-  window.addEventListener("scroll", function() {
-    const header = document.querySelector("header");
-    if (window.scrollY > 10) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
-
-
-
-
-//Adaptado a móvil
-
+// ----------------- HEADER OCULTAR / MOSTRAR -----------------
 let lastScrollY = window.scrollY;
 const header = document.querySelector("header");
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector("nav");
 
-// Detectar scroll en PC y móvil
 window.addEventListener("scroll", () => {
   if (window.scrollY > lastScrollY) {
-    // Bajando → ocultar
-    header.classList.add("hidden");
+    header.classList.add("hidden"); // bajando → ocultar
   } else {
-    // Subiendo → mostrar
-    header.classList.remove("hidden");
+    header.classList.remove("hidden"); // subiendo → mostrar
   }
   lastScrollY = window.scrollY;
 });
 
-// Detectar si toca arriba (para móvil)
-window.addEventListener("touchstart", (e) => {
-  if (window.scrollY <= 0) {
-    header.classList.remove("hidden");
-  }
+window.addEventListener("touchstart", () => {
+  if (window.scrollY <= 0) header.classList.remove("hidden");
 });
 
-// Detectar movimiento del mouse arriba (solo PC)
 document.addEventListener("mousemove", (e) => {
-  if (e.clientY < 50) {
-    header.classList.remove("hidden");
-  }
+  if (e.clientY < 50) header.classList.remove("hidden");
 });
 
-// Toggle menú hamburguesa en móvil
+// ----------------- MENÚ HAMBURGUESA -----------------
 menuToggle.addEventListener("click", () => {
   nav.classList.toggle("active");
 });
@@ -143,4 +121,6 @@ document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
     parent.classList.toggle("active");
   });
 });
+
+
 
