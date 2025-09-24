@@ -423,27 +423,25 @@ footer p {
   font-size: 28px;
   cursor: pointer;
   color: white;
-  position: fixed; /* siempre visible */
-  top: 15px;
-  right: 20px;
-  z-index: 1100; /* arriba de todo */
+  position: relative; /* dentro del header */
+  z-index: 1100; /* siempre arriba del nav */
 }
 
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   nav {
     display: none;
-    position: fixed; /* fijo sobre todo el contenido */
-    top: 0;
+    position: absolute; /* debajo del header */
+    top: 60px; /* justo debajo del header */
     left: 0;
     width: 100%;
-    height: 100%; /* ocupa toda la pantalla */
-    background: rgba(108, 99, 255, 0.95); /* semitransparente */
+    background: #6C63FF;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     z-index: 1000; /* debajo del botón */
-    padding-top: 80px; /* no tapa el header */
   }
 
   nav.active {
@@ -452,7 +450,6 @@ footer p {
 
   nav ul {
     flex-direction: column;
-    gap: 20px;
     padding: 0;
     margin: 0;
   }
@@ -501,7 +498,6 @@ footer p {
   }
 }
 
-
 /* Carrusel responsive */
 .carousel-item {
   min-width: 90%;
@@ -515,6 +511,7 @@ footer p {
     margin: 0 10px;
   }
 }
+
 
 
 
