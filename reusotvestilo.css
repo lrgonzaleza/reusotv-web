@@ -427,14 +427,15 @@ footer p {
 
 @media (max-width: 768px) {
   nav {
-    display: none;
+     display: none;
     position: absolute;
-    top: 60px;
+    top: 60px; /* justo debajo del header */
     left: 0;
     width: 100%;
     background: #6C63FF;
     flex-direction: column;
     text-align: center;
+    z-index: 1000; /* menos que .menu-toggle */
   }
 
   nav.active {
@@ -452,7 +453,12 @@ footer p {
   }
 
   .menu-toggle {
-    display: block;
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  z-index: 1100; /* más alto que el nav */
   }
 
   /* ---------- CENTRAR PRODUCTOS DESTACADOS Y ACCESORIOS ---------- */
@@ -493,5 +499,6 @@ footer p {
     margin: 0 10px;
   }
 }
+
 
 
