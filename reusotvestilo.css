@@ -427,10 +427,22 @@ footer p {
   z-index: 1100; /* siempre arriba del nav */
 }
 
+/* Header más angosto en móvil */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+  header {
+    padding: 5px 15px;   /* menos espacio interno */
+    height: 50px;        /* más angosto que el default */
   }
+
+  header .logo img {
+    max-height: 35px;    /* logo más pequeño para que encaje */
+  }
+
+  .menu-toggle {
+    font-size: 24px;     /* ajustamos el ícono hamburguesa */
+  }
+}
+
 
   nav {
     display: none;
@@ -527,6 +539,7 @@ footer p {
     margin: 0 10px;
   }
 }
+
 
 
 
