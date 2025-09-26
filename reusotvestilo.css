@@ -435,11 +435,11 @@ footer p {
   
   header {
     padding: 5px 15px;   /* menos espacio interno */
-    height: 50px;        /* más angosto que el default */
+    height: 100px;        /* más angosto que el default */
   }
 
   header .logo img {
-    max-height: 35px;    /* logo más pequeño para que encaje */
+    max-height: 70px;    /* logo más pequeño para que encaje */
   }
 
 
@@ -538,6 +538,7 @@ footer p {
     margin: 0 10px;
   }
 }
+
 
 
 
