@@ -429,6 +429,11 @@ footer p {
 
 /* Header más angosto en móvil */
 @media (max-width: 768px) {
+
+   #quienes-somos p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
   .menu-toggle {
     display: block;
   }
@@ -538,6 +543,7 @@ footer p {
     margin: 0 10px;
   }
 }
+
 
 
 
