@@ -419,6 +419,31 @@ footer p {
   transform: scale(1.05);
 }
 
+/* ---------- Pago con red compra ---------- */
+
+.pago-badge {
+  position: fixed;
+  bottom: 20px;         /* distancia del borde inferior */
+  right: 20px;          /* distancia del borde derecho */
+  background: rgba(255, 255, 255, 0.9); /* fondo suave semi-transparente */
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sombra sutil */
+  display: flex;
+  align-items: center;
+  z-index: 1000;        /* que quede encima de otros elementos */
+  transition: transform 0.3s;
+}
+
+.pago-badge img {
+  height: 50px;          /* tamaño del logo */
+  display: block;
+}
+.pago-badge:hover {
+  transform: scale(1.05); /* efecto leve al pasar el mouse */
+  cursor: pointer;
+}
+
 /* ---------- RESPONSIVE ---------- */
 .menu-toggle {
   display: none;
@@ -431,6 +456,10 @@ footer p {
 
 /* Header más angosto en móvil */
 @media (max-width: 768px) {
+
+   .pago-badge {
+    display: none;
+  }
 
    #quienes-somos p {
     text-align: justify;
@@ -545,6 +574,7 @@ footer p {
     margin: 0 10px;
   }
 }
+
 
 
 
