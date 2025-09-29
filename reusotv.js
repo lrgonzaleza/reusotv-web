@@ -144,7 +144,7 @@ async function cargarProductos() {
   
   // Convertir CSV a array
   const rows = data.split("\n").map(row => row.split(","));
-  const contenedor = document.getElementById("productos");
+  const contenedor = document.getElementById("productos-destacados");
 
   // Quita la primera fila (encabezados)
   rows.slice(1).forEach(col => {
@@ -163,6 +163,7 @@ async function cargarProductos() {
 }
 
 cargarProductos();
+
 
 
 
