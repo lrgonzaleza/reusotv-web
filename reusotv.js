@@ -135,37 +135,8 @@ document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
 });
 
 
-async function cargarProductosDestacados() {
-  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQwF2YRtLM1hE6SKmruG9WRReDdAVQChvP1-E6vV72D0xqAuZebEdUtxmB-eVBEwlLOT0hgd2oBGLOr/pub?gid=0&single=true&output=csv"; // reemplaza con tu link CSV
 
-  const response = await fetch(url);
-  const data = await response.text();
 
-  // Usando PapaParse para evitar problemas con comas en la descripción
-  const parsed = Papa.parse(data, { header: true });
-  const productos = parsed.data;
-
-  const contenedor = document.getElementById("productos-destacados");
-  contenedor.innerHTML = ""; // limpiar contenido previo
-
-  productos.forEach(prod => {
-    if (prod.Nombre && prod.ImagenPrincipal) { // evitar filas vacías
-      const div = document.createElement("div");
-      div.className = "producto";
-      div.innerHTML = `
-        <img src="${prod.ImagenPrincipal}" alt="${prod.Nombre}">
-        <h3>${prod.Nombre}</h3>
-        <p>${prod.Descripcion}</p>
-        <p class="precio">$${prod.Precio}</p>
-        <a href="https://wa.me/56964772479" target="_blank" class="btn-cotizar">Cotizar</a>
-      `;
-      contenedor.appendChild(div);
-    }
-  });
-}
-
-// Ejecutar la función
-cargarProductosDestacados();
 
 
 
