@@ -136,7 +136,7 @@ document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
 
 
 async function cargarProductosDestacados() {
-  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQwF2YRtLM1hE6SKmruG9WRReDdAVQChvP1-E6vV72D0xqAuZebEdUtxmB-eVBEwlLOT0hgd2oBGLOr/pub?output=csv"; // reemplaza con tu link CSV
+  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQwF2YRtLM1hE6SKmruG9WRReDdAVQChvP1-E6vV72D0xqAuZebEdUtxmB-eVBEwlLOT0hgd2oBGLOr/pub?gid=0&single=true&output=csv"; // reemplaza con tu link CSV
 
   const response = await fetch(url);
   const data = await response.text();
@@ -166,6 +166,7 @@ async function cargarProductosDestacados() {
 
 // Ejecutar la función
 cargarProductosDestacados();
+
 
 
 
