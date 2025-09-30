@@ -134,6 +134,31 @@ document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
   });
 });
 
+src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js">
+
+  
+window.onload = function() {
+  Tabletop.init({
+    key: 'ID_DE_TU_HOJA',
+    simpleSheet: true,
+    callback: function(data, tabletop) {
+      const contenedor = document.getElementById('productos');
+      data.forEach(item => {
+        const producto = document.createElement('div');
+        producto.innerHTML = `
+          <h3>${item.Nombre}</h3>
+          <p>${item.Descripción}</p>
+          <p>Precio: $${item.Precio}</p>
+          <img src="${item['Imagen URL']}" alt="${item.Nombre}" width="150">
+        `;
+        contenedor.appendChild(producto);
+      });
+    }
+  });
+}
+
+
+
 
 
 
