@@ -135,34 +135,38 @@ document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
 });
 
 
-async function cargarProductos() {
-  // 🔗 tu link publicado en Google Sheets
-  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQwF2YRtLM1hE6SKmruG9WRReDdAVQChvP1-E6vV72D0xqAuZebEdUtxmB-eVBEwlLOT0hgd2oBGLOr/pub?gid=0&single=true&output=csv"; 
-  
+async function cargarProductosDestacados() {
+  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQwF2YRtLM1hE6SKmruG9WRReDdAVQChvP1-E6vV72D0xqAuZebEdUtxmB-eVBEwlLOT0hgd2oBGLOr/pub?output=csv"; // reemplaza con tu link CSV
+
   const response = await fetch(url);
   const data = await response.text();
-  
-  // Convertir CSV a array
-  const rows = data.split("\n").map(row => row.split(","));
-  const contenedor = document.getElementById("productos-destacados");
 
-  // Quita la primera fila (encabezados)
-  rows.slice(1).forEach(col => {
-    if (col[0]) { // evitar filas vacías
-      const card = `
-        <div style="border:1px solid #ddd; padding:15px; margin:10px; border-radius:10px; max-width:200px;">
-          <img src="${col[4]}" alt="${col[1]}" style="width:100%; border-radius:8px;">
-          <h3>${col[1]}</h3>
-          <p><b>Precio:</b> $${col[2]}</p>
-          <p>${col[3]}</p>
-        </div>
+  // Usando PapaParse para evitar problemas con comas en la descripción
+  const parsed = Papa.parse(data, { header: true });
+  const productos = parsed.data;
+
+  const contenedor = document.getElementById("productos-destacados");
+  contenedor.innerHTML = ""; // limpiar contenido previo
+
+  productos.forEach(prod => {
+    if (prod.Nombre && prod.ImagenPrincipal) { // evitar filas vacías
+      const div = document.createElement("div");
+      div.className = "producto";
+      div.innerHTML = `
+        <img src="${prod.ImagenPrincipal}" alt="${prod.Nombre}">
+        <h3>${prod.Nombre}</h3>
+        <p>${prod.Descripcion}</p>
+        <p class="precio">$${prod.Precio}</p>
+        <a href="https://wa.me/56964772479" target="_blank" class="btn-cotizar">Cotizar</a>
       `;
-      contenedor.innerHTML += card;
+      contenedor.appendChild(div);
     }
   });
 }
 
-cargarProductos();
+// Ejecutar la función
+cargarProductosDestacados();
+
 
 
 
