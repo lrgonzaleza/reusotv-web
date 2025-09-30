@@ -111,6 +111,7 @@ window.addEventListener("scroll", () => {
   lastScrollY = window.scrollY;
 });
 
+
 window.addEventListener("touchstart", () => {
   if (window.scrollY <= 0) header.classList.remove("hidden");
 });
@@ -133,31 +134,6 @@ document.querySelectorAll("nav ul li.dropdown > a").forEach(link => {
     if(submenu) submenu.classList.toggle("active"); // mostrar/ocultar
   });
 });
-
-src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js">
-
-  
-window.onload = function() {
-  Tabletop.init({
-    key: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-t_TVwybOleW-3kaPPPkMXibZNhl62XEqe_nWyJyB36oPVMpWrTnp0XbIVnKWJ28W3Ck_rpynaLoF/pubhtml?gid=0&single=true',
-    simpleSheet: true,
-    callback: function(data, tabletop) {
-      const contenedor = document.getElementById('productos');
-      data.forEach(item => {
-        const producto = document.createElement('div');
-        producto.innerHTML = `
-          <h3>${item.Nombre}</h3>
-          <p>${item.Descripción}</p>
-          <p>Precio: $${item.Precio}</p>
-          <img src="${item['Imagen URL']}" alt="${item.Nombre}" width="150">
-        `;
-        contenedor.appendChild(producto);
-      });
-    }
-  });
-}
-
-
 
 
 
