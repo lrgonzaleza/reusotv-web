@@ -139,7 +139,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js">
   
 window.onload = function() {
   Tabletop.init({
-    key: 'ID_DE_TU_HOJA',
+    key: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-t_TVwybOleW-3kaPPPkMXibZNhl62XEqe_nWyJyB36oPVMpWrTnp0XbIVnKWJ28W3Ck_rpynaLoF/pubhtml?gid=0&single=true',
     simpleSheet: true,
     callback: function(data, tabletop) {
       const contenedor = document.getElementById('productos');
@@ -156,6 +156,7 @@ window.onload = function() {
     }
   });
 }
+
 
 
 
